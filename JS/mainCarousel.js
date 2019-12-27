@@ -162,7 +162,7 @@ class Carousel {
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
+
 
     new Carousel(document.querySelector('#carousel1'), {
         slideVisible: 2,
@@ -170,4 +170,3 @@ document.addEventListener('DOMContentLoaded', function () {
         loop: true
     })
 
-});
