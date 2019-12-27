@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link crossorigin="" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+          integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+          rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+
+
+    <title>Vélo.com</title>
+
+</head>
+<header class="container">
+    <div class="row">
+
+        <h1 class="title col-12">Réservation vélo.com</h1>
+
+    </div>
+</header>
+<body>
+<div class=>
+    <div class=" display_info
+">
+        <h1 class="title_news">INFORMATIONS:</h1>
+    </div>
+    <div id="carousel1">
+        <div class="item">
+            <div class="item__image">
+                <img height="580" src="img/imgs1.jpg"/>
+            </div>
+            <div class="item__body">
+                <div class="item__title">
+                    Mon velo.com
+                </div>
+                <div class="item__description">
+                    <ul>
+                        <li>La location de velo sur Lyon et ces alentours !!!</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item__image">
+                <img height="580" src="img/imgs2.jpg"/>
+            </div>
+            <div class="item__body">
+                <div class="item__title">
+                    Une multitude de sations disponible :
+                </div>
+                <div class="item__description container">
+                    <ul class="row">
+                        <li class="col">
+                            <p> station vide . <img src="img/img%20inst%201.png" style="height: 30px; width: 30px"></p>
+                        </li>
+                        <li class="col">
+                            <p> station libre . <img src="img/img%20inst%203.jpg" style="height: 30px; width: 30px"></p>
+                        </li>
+                        <li class="col">
+                            <p> station selectionner . <img src="img/img%20inst%202.jpg"
+                                                            style="height: 30px; width: 30px"></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item__image">
+                <img height="580" src="img/imgs3.jpg"/>
+
+            </div>
+            <div class="item__body">
+                <div class="item__title">
+                    Reserver votre velo !!
+                </div>
+                <div class="item__description">
+                    <ul>
+                        <li>Apres avoir selectionner votre velo veuillez remplir le formulaire se trouvant a droite de
+                            la map.
+                        </li>
+                        <li>Puis veuillez signer pour valider la reservation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="item__image">
+                <img height="580" src="img/imgs4.jpg"/>
+
+            </div>
+            <div class="item__body">
+                <div class="item__title">
+                    Bravo vous avez reserver votre velo
+                </div>
+                <div class="item__description">
+                    <ul>
+                        <li>Attention la reservation du velo n'est que de 30 minutes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-primary col" id="pause_slide"> Stop</button>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6" id="map">
+        </div>
+        <div class="col-6">
+            <form id="form">
+                <div class="form-group">
+                    <legend>Détail de la station</legend>
+                    <div>
+                        <label for="address">Addresse :</label>
+                        <input id="address" disabled="disabled" class="form-control">
+
+                    </div>
+                    <div>
+                        <input id="id" type="hidden">
+
+                    </div>
+                    <div>
+                        <label for="name">Nom :</label>
+                        <input id="name" name="user_name" type="text" class="form-control">
+                    </div>
+                    <div>
+                        <label for="mail">e-mail :</label>
+                        <input id="mail" name="user_mail" type="email" class="form-control">
+                    </div>
+                    <div class="button">
+                        <button class="btn btn-primary " id="booking" name="user_booking" type="submit">
+                            RESERVER
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="time">
+        </div>
+    </div>
+</div>
+<div id="modal">
+    <div>
+        <h1>Veuillez signez pour confimer la location !!! </h1>
+        <canvas id="sign">
+        </canvas>
+        <button id="clearButton" type="button" class="btn btn-primary">
+            Clear
+        </button>
+        <button id="validate" type="button" class="btn btn-primary">VALIDER</button>
+        <button id="cancel" type="button" class="btn btn-alert">ANNULER</button>
+    </div>
+</div>
+
+<script src="JS/jquery-3.4.1.min.js"></script>
+<script src="JS/localStorage.js"></script>
+<script crossorigin=" "
+        integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+        src=" https://unpkg.com/leaflet@1.5.1/dist/leaflet.js "></script>
+<script src="JS/map.js"></script>
+<script async src="JS/mainCarousel.js"></script>
+<script src="JS/mainStation.js"></script>
+<script src="JS/mainCanvas.js"></script>
+</body>
+</html>
